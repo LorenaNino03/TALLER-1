@@ -83,6 +83,17 @@ Calcular la latencia (RTT) y observar la variabilidad (jitter) en las respuestas
 Procedimiento
 # Sin perturbación: Inicia la captura en Wireshark. Desde contenedor1, hacer ping a contenedor2 con 10 paquetes: ping -c 10 172.17.0.3. Detener la captura.
 <img width="999" height="438" alt="image" src="https://github.com/user-attachments/assets/dc7028ce-96a6-49c8-a305-f066cb931e50" />
+RTT Mínimo: 0,093 ms
+RTT Promedio (promedio): 0,370 ms
+RTT Máximo: 3.496 ms
+Jitter (mdev): 0,836 ms
+# Analisis
+# ¿Qué es la latencia?
+Es el tiempo exacto que tarda un paquete de datos en viajar desde el origen al destino y regresar
+# ¿Qué factores pueden causarla?La distancia física entre nodos, la congestión en los routers, el procesamiento de los protocolos en cada salto y, en el caso de Docker, la sobrecarga del switch virtual
+# ¿Qué es el jitter y por qué es importante para aplicaciones en tiempo real (VoIP,gaming)?
+VoIP (llamadas): Un jitter alto causa que la voz se escuche entrecortada o robótica.
+Videojuegos: Provoca los famosos "tirones" o lag spikes
 
 
 
