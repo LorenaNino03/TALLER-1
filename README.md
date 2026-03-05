@@ -40,6 +40,96 @@ En la siguiente imagen podemos ver que se movio
 Para visualizarlo debemos colocar el siguiente comando en una nueva interface de Ubuntu
 <img width="1448" height="302" alt="image" src="https://github.com/user-attachments/assets/3259618d-58f4-4767-916b-9cf1bdf4a959" />
 <img width="1617" height="819" alt="image" src="https://github.com/user-attachments/assets/d31ff4c9-b854-4aad-9098-6259e3b477c8" />
+<img width="1721" height="733" alt="image" src="https://github.com/user-attachments/assets/d96fd0fc-fbe1-44da-80b4-9189ae101e86" />
+
+# Segundo Punto Descubriendo el protocolo ARP
+
+# Escenario Docker
+Crear una red bridge personalizada:
+<img width="877" height="97" alt="image" src="https://github.com/user-attachments/assets/23cd0062-f6bd-42e8-be57-217187f7307b" />
+# Lanzar dos contenedores interactivos (con bash)conectados a esa red:
+<img width="694" height="345" alt="image" src="https://github.com/user-attachments/assets/d4a85386-aa4b-4e72-8cc1-9da83cc186ca" />
+
+# Obtener IP del destino contenedor 2
+<img width="1003" height="39" alt="image" src="https://github.com/user-attachments/assets/3eb89135-f4aa-4328-838c-32d5ad19b072" />
+# Escuchar el tráfico ARP: En una terminal aparte, ejecutamos:
+<img width="800" height="271" alt="image" src="https://github.com/user-attachments/assets/cb2e8b83-b7d0-41a6-b3e9-cae1cffe1480" />
+
+# Obtener IP del destino Contenedor 1
+<img width="1011" height="36" alt="image" src="https://github.com/user-attachments/assets/82976513-e044-44fc-95d3-054343593935" />
+
+# Desde el contenedor1, hacer ping a contenedor2: “ping –c 172.17.0.3” (usar la IP de contenedor2).
+<img width="735" height="43" alt="image" src="https://github.com/user-attachments/assets/4b55c4ba-fe64-4490-95d6-2c430879cec2" />
+# Iniciar la captura en Wireshark con el filtro arp.
+<img width="1250" height="420" alt="image" src="https://github.com/user-attachments/assets/d29b0bcb-cac4-4394-b079-582c42ed2455" />
+
+# Análisis y Preguntas
+## ¿Quién envía la trama ARP? (Dirección MAC de origen y destino).
+La envía el Contenedor 1 (el emisor del ping). En la captura se observa como un paquete . La dirección MAC de origen es la del contenedor emisor y la de destino inicial es la de difusión (broadcast: )
+
+## ¿A qué dirección MAC de destino va dirigido?
+Va dirigido a la dirección de Broadcast. Esto es necesario porque el emisor conoce la IP del destino
+
+## Identificar el paquete de respuesta ARP: "172.17.0.3 is at <MAC_del_contenedor2>". ¿Es broadcast o unicast?
+Es Unicast.
+## Explicar: ¿Por qué es necesario el ARP? ¿Qué información se almacena en la caché ARP después de este intercambio?
+Porque los switches y tarjetas de red trabajan en la Capa 2 (Enlace de datos) y solo entienden direcciones MAC. El ARP traduce las IPs (Capa 3) a direcciones físicas.
+Caché ARP: Después del intercambio, ambos contenedores guardan esta relación en una tabla temporal (caché) para no tener que repetir el proceso de "preguntar a todos" en el próximo envío.
+
+## Tercer Punto Midiendo latencia y jitter con ping
+Calcular la latencia (RTT) y observar la variabilidad (jitter) en las respuestas ICMP.
+<img width="999" height="438" alt="image" src="https://github.com/user-attachments/assets/69b8f53b-c3e2-4470-b7d6-0cc4def0ea5a" />
+# Escenario Docker
+Procedimiento
+# Sin perturbación: Inicia la captura en Wireshark. Desde contenedor1, hacer ping a contenedor2 con 10 paquetes: ping -c 10 172.17.0.3. Detener la captura.
+<img width="999" height="438" alt="image" src="https://github.com/user-attachments/assets/dc7028ce-96a6-49c8-a305-f066cb931e50" />
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
