@@ -90,9 +90,14 @@ Jitter (mdev): 0,836 ms
 # Analisis
 # ¿Qué es la latencia?
 Es el tiempo exacto que tarda un paquete de datos en viajar desde el origen al destino y regresar
-# ¿Qué factores pueden causarla?La distancia física entre nodos, la congestión en los routers, el procesamiento de los protocolos en cada salto y, en el caso de Docker, la sobrecarga del switch virtual
+
+# ¿Qué factores pueden causarla?
+La distancia física entre nodos, la congestión en los routers, el procesamiento de los protocolos en cada salto y, en el caso de Docker, la sobrecarga del switch virtual
+
 # ¿Qué es el jitter y por qué es importante para aplicaciones en tiempo real (VoIP,gaming)?
+
 VoIP (llamadas): Un jitter alto causa que la voz se escuche entrecortada o robótica.
+
 Videojuegos: Provoca los famosos "tirones" o lag spikes
 
 
