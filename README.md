@@ -32,6 +32,15 @@ Identificamos el contenedor
 Ponemos el nombre del contenedor para que así nos indique como podemos mover el robot. 
 <img width="1467" height="377" alt="image" src="https://github.com/user-attachments/assets/7232b9eb-ce6c-4fa2-84f7-641df2538eb0" />
 
+# Paso 2 Ejecutar el Sistema
+En la siguiente imagen podemos ver que se movio
+<img width="1306" height="827" alt="image" src="https://github.com/user-attachments/assets/e3b2a2b5-0a87-4b42-b3fc-f5066fb3375f" />
+
+# Paso 3 Visualizar el mapa
+Para visualizarlo debemos colocar el siguiente comando en una nueva interface de Ubuntu
+<img width="1448" height="302" alt="image" src="https://github.com/user-attachments/assets/3259618d-58f4-4767-916b-9cf1bdf4a959" />
+<img width="1617" height="819" alt="image" src="https://github.com/user-attachments/assets/d31ff4c9-b854-4aad-9098-6259e3b477c8" />
+
 
 
 
